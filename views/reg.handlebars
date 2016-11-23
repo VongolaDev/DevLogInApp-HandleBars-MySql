@@ -1,0 +1,26 @@
+<script>
+var data = sessionStorage.getItem('SESSION_ISLOGIN');
+  
+if(data === "true")
+{
+ bootbox.alert("You Must Log Out");
+    $(location).attr('href', 'Dashboard')
+}
+
+</script>
+
+<div id ="main">
+<div id="first">
+ <img id="logo" src="images/loading.gif"/>  
+    <form action="reg" method="post">
+        <h3>Creating Eye D</h3>
+        <img id="divider" src="images/divider.png "/>
+   
+        <input type="text" name="username" placeholder="Email" />
+      <input type="password" name="password" placeholder="Password" />
+                   <input type="password" name="cpassword" placeholder="Confirm Password" />
+    
+    <input type="submit">
+    </form>  
+</div>
+</div>

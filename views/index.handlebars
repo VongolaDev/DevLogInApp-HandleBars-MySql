@@ -1,0 +1,35 @@
+     
+
+
+<script>
+var data = sessionStorage.getItem('SESSION_ISLOGIN');
+  
+if(data === "true")
+{
+ bootbox.alert("You Must Log Out");
+    $(location).attr('href', 'Dashboard')
+}
+
+</script>
+      
+     <div id="main">
+    
+     <div id="first">
+     <img id="logo" src="images/loading.gif"/>  
+      <form action="" method="post">
+          <h3>Access The Eye</h3>
+        <img id="divider" src="images/divider.png "/>
+      <input type="text" id="loginemail" placeholder="Email" />
+      <input type="password" id="loginpassword" placeholder="Password" />
+  
+       <p id="one"><a href="#" id="login" class="signup">     <img id="login" src="images/login.png "/>   </a></p>
+      <p id="two"><a href="/reg" id="signup" class="signup"> <img id="signup" src="images/signup.jpg "/> </a></p>
+    </form> 
+   </div>
+   
+  
+ 
+
+   </div>
+  </div> 
+ 
