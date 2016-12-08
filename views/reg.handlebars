@@ -1,11 +1,13 @@
+<title>reg</title>
 <script>
 var data = sessionStorage.getItem('SESSION_ISLOGIN');
-  
+var register = sessionStorage.getItem('SESSION_REGISTERED');  
 if(data === "true")
 {
- bootbox.alert("You Must Log Out");
+
     $(location).attr('href', 'Dashboard')
 }
+
 
 </script>
 
@@ -16,11 +18,19 @@ if(data === "true")
         <h3>Creating Eye D</h3>
         <img id="divider" src="images/divider.png "/>
    
-        <input type="text" name="username" placeholder="Email" />
-      <input type="password" name="password" placeholder="Password" />
-                   <input type="password" name="cpassword" placeholder="Confirm Password" />
-    
-    <input type="submit">
+        <input type="text" id="username" name="username" placeholder="username" />
+      <input type="password" id="password" name="password" placeholder="Password" />
+                   <input type="password" id="cpassword" name="cpassword" placeholder="Confirm Password" />
+
+
+
+
+ <input type="submit" id = "authorizing">
+   <a href="/home" >     <img id="login" src="images/login.png "/>   </a>
+   
+
     </form>  
+
+
 </div>
 </div>

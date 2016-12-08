@@ -40,6 +40,7 @@ usid = rows.length;
 
 });
 
+
 app.get('/', function (req, res) {
     res.render('index');
 
@@ -63,9 +64,6 @@ app.get('/home', function (req, res) {
 app.get('/dashboard',function(req,res) {
 	res.render('dashboard');
 });
-app.get('/error',function(req,res) {
-  res.render('error');
-});
 
 
 
@@ -81,7 +79,7 @@ app.get('/reg',function(req,res) {
 app.post('/reg',function(req,res) {
   
 
-console.log(req.body);
+
 
 var id = usid;
 var username = req.body.username;
@@ -97,6 +95,7 @@ var reg = {
 if(cpassword === password && password.length >= 8)
 {
 var connection = mysql.createConnection({
+
 
   host:'localhost',
   user: 'root',
@@ -140,16 +139,10 @@ usid = rows.length;
 });
 
 
-res.render('')
-   
+ res.render('');
 
    }
-   else
-   {
-
-res.render('error')
-    console.log("err");
-   }
+  
 });
 
 

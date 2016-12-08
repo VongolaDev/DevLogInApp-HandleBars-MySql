@@ -4,12 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "wdio",
     "start": "node apps"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/JosesLu/handlebars-intro.git"
+    "url": ""
   },
   "author": "",
   "license": "ISC",
@@ -24,5 +24,11 @@
     "jsonfile": "^2.4.0",
     "mysql": "^2.12.0",
     "passport": "^0.3.2"
+  },
+  "devDependencies": {
+    "selenium-standalone": "^5.8.0",
+    "wdio-mocha-framework": "^0.5.4",
+    "wdio-selenium-standalone-service": "0.0.7",
+    "webdriverio": "^4.4.0"
   }
 }

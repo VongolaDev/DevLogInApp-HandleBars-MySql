@@ -4,7 +4,7 @@
 
 //login
 	 $("#login").click(function(){
-   
+
 	
     $.ajax({
       url: 'http://localhost:8080/db',
@@ -37,86 +37,50 @@ var lengthx = data.length;
 
       if(pw == varpw && uname == varuname)
       {
-        
+        alert("You are logged In")
         
         sessionStorage.setItem('SESSION_ISLOGIN', 'true');
        
         $(location).attr('href', 'DashBoard')
-
-        pass++;
+pass++;
+        break;
+        
       }
 
 
     }
     if (pass == 0)
     {
-      bootbox.alert("Invalid Credentials");
+     if("" == varpw && "" == varuname)
+{
+  alert("Empty Fields")
       $("form")[0].reset();
+}
+
+        else
+        {
+          alert("Invalid Credentials")
+      $("form")[0].reset();
+        }
     }  
   }
 	 
 });
 
 //register
+   $("#authorizing").click(function(){
 
- $("#register").click(function(){
-  
+     var uname = $("#username").val();
+    var pw = $("#password").val();
+      var cpw = $("#cpassword").val();
+if(cpw === pw && pw.length >= 8)
+{
 
-  var email = new RegExp(/^[+a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i);
-    
-    if( $("#fname").val()=='' ||$("#lname").val()=='' || $("#registeremail").val()=='' || $("#registerpassword").val()=='' || $("#contact").val()=='')
-    {
-      bootbox.alert("Please fill all fields...!!!!!!");
-    }
-                else if($("#fname").val().match("[0-9]+")    )
-                {
-                    bootbox.alert("Provide Letters for Your Name Only");
-                }
-                  else if($("#lname").val().match("[0-9]+")    )
-                {
-                    bootbox.alert("Provide Letters for Your Name Only");
-                }
-                else if($("#registerpassword").val().length < 8)
-                {
-                    bootbox.alert("Password Must Be  8 Character and Above")
-                }
-                else if($("#registerpassword").val() != $("#registerpassword2").val())
-                {
-                    bootbox.alert("Password Mismatch");
-                }
-                
-    
-    else if(!($("#registeremail").val()).match(email))
-    {
-      bootbox.alert("Please enter valid Email...!!!!!!");
-    }
-    
-    else
-    {
-     
-
-      var arr = { "username": $("#registeremail").val(), "password": $("#registerpassword").val()};
-$.ajax({
-    url: 'http://localhost:3000/accts',
-    type: 'POST',
-    data: JSON.stringify(arr),
-    contentType: 'application/json; charset=utf-8',
-    dataType: 'json',
-   
-    success: function(msg) {
-     
-    }
+  alert("Registered");
+}
+else
+{
+    alert("Empty Fields or Invalid Credentials")
+}
 });
-     bootbox.alert("Welcome To The Eye");
-     $("#form")[0].reset();
-     $("#second").slideUp("slow",function(){
-        $("#first").slideDown("slow");
-     });
-
-        }
-
-
-
-   });
-
    });
