@@ -106,7 +106,7 @@ connection.connect();
 
 
 
-var query = connection.query('insert into useraccts set ?', reg , function (err, result){
+connection.query('insert into useraccts set ?', reg , function (err, result){
 if(err){
   console.error(err);
   return;
@@ -115,14 +115,6 @@ console.error(result);
 
 });
 
-  var connection = mysql.createConnection({
-
-  host:'localhost',
-  user: 'root',
-  password: '',
-  database:'accounts'
-});
-connection.connect();
  
 connection.query("SELECT * FROM useraccts", function(err, rows, fields) {
   if (!!err)
@@ -132,6 +124,7 @@ connection.query("SELECT * FROM useraccts", function(err, rows, fields) {
   else
   {
 db = rows
+console.log(db);  
 usid = rows.length;
   }
  
@@ -144,6 +137,135 @@ usid = rows.length;
    }
   
 });
+
+
+
+app.get('/do',function(req,res) {
+  res.render('do');
+});
+app.post('/do',function(req,res) {
+
+
+
+var tobechanged = req.body.pos;
+var userval = req.body.userval;
+var passval = req.body.passval;
+var proc = req.body.process;
+
+var connection = mysql.createConnection({
+
+  host:'localhost',
+  user: 'root',
+  password: '',
+  database:'accounts'
+});
+connection.connect();
+
+
+if( proc === 'update')
+{
+
+
+
+connection.query('UPDATE useraccts SET id = ?, username = ?, password = ? WHERE username = ?', [1, userval,passval, tobechanged], function(err, results) {
+  // ...
+});
+
+
+
+
+
+}
+
+else if( proc === "delete")
+{
+
+
+connection.query('DELETE from useraccts WHERE username = ?', tobechanged, function(err, results) {
+  // ...  
+});
+
+
+ 
+
+
+
+}
+
+else if( proc === 'register')
+{
+
+var id = "1";
+var username = req.body.adduserval;
+var password = req.body.addpassval;
+var cpassword = req.body.addcpassval;
+var reg = {
+  id : id+1,
+  username : username,
+  password : password
+}
+
+
+if(cpassword === password && password.length >= 8)
+{
+var connection = mysql.createConnection({
+
+
+  host:'localhost',
+  user: 'root',
+  password: '',
+  database:'accounts'
+});
+connection.connect();
+
+
+
+connection.query('insert into useraccts set ?', reg , function (err, result){
+if(err){
+  console.error(err);
+  return;
+}
+console.error(result);
+
+});
+
+
+
+ 
+
+   }
+}
+
+connection.query("SELECT * FROM useraccts", function(err, rows, fields) {
+  if (!!err)
+  {
+    console.log(err);
+  }
+  else
+  {
+db = rows
+
+console.log(db);
+
+  }
+ 
+
+});
+
+
+
+res.redirect('Dashboard');
+
+
+
+
+
+  });
+
+
+
+
+
 
 
 

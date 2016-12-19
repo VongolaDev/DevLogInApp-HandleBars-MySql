@@ -67,6 +67,7 @@ pass++;
 	 
 });
 
+
 //register
    $("#authorizing").click(function(){
 
@@ -83,4 +84,13 @@ else
     alert("Empty Fields or Invalid Credentials")
 }
 });
+
+//table
+
+
+
+
+
+  
+
    });
